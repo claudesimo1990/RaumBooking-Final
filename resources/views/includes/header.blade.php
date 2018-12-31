@@ -1,8 +1,5 @@
 <header>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <div class="row titreHeader">
-            <h1 class=" text-center">RaumReservierung</h1>
-        </div>
 
         <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
