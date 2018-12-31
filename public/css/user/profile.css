@@ -1,0 +1,22 @@
+.details li {
+  list-style: none;
+}
+li {
+    margin-bottom:10px;
+    
+}
+.logreg{
+  padding-top: 80px;
+}
+.haut{
+    margin-top: 180px;
+}
+.pg{
+	margin-top: 10px;
+}
+.bg-primary{
+	background-color: #f0bcbb !important;
+}
+#link{
+	color: rgb(201, 69, 156) !important;
+}
