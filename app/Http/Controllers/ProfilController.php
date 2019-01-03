@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\profile;
+use Illuminate\Broadcasting\Broadcasters\auth;
 use Illuminate\Http\Request;
 
 class ProfilController extends Controller
@@ -14,10 +16,9 @@ class ProfilController extends Controller
      */
     public function index()
     {    
-
-        $users = User::find(auth()->id());
-
-        return view('users.profile', compact('users'));
+         
+         //
+        
     }
 
     /**
@@ -26,8 +27,10 @@ class ProfilController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
+
     {
-        //
+        $user = User::find(auth()->id());
+        return view('users.editProfile',compact('user'));
     }
 
     /**
@@ -38,7 +41,36 @@ class ProfilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+         
+         'vorname' => 'required',
+         'matrikelnummer' => 'required | integer',
+         'studiengang' => 'required',
+         'semester' => 'required | integer',
+         'adresse' => 'required',
+         'avatar' => 'required | mimes:jpeg,png'
+        ]);
+
+        if ($request->hasFile('avatar')) {
+
+            $avatar = $request->avatar->getClientOriginalName();
+            $request->avatar->storeAs('public/avatar',$avatar);    
+        }
+
+        $profile = new profile;
+
+        $profile->vorname = $request->vorname;
+        $profile->matrikelnummer = $request->matrikelnummer;
+        $profile->studiengang = $request->studiengang;
+        $profile->semester = $request->semester;
+        $profile->adresse = $request->adresse;
+        $profile->user_id = auth()->id();
+        $profile->avatar = $avatar;
+        
+        $profile->save();
+
+        return redirect('/profile')->with('success', 'Ihre Daten wurden erfolgreich registriert');
+
     }
 
     /**
@@ -47,9 +79,15 @@ class ProfilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $users = User::find(auth()->id());
+
+        $profiles = profile::where('user_id',auth()->id())->get();
+
+        // dd($profiles);
+
+        return view('users.profile', compact(['users','profiles']));
     }
 
     /**

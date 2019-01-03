@@ -25,14 +25,18 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
-            <li class=""><a href="{{ route('post.index') }}"><i class="fa fa-circle-o"></i> Reservierungen</a></li>
+            <li class=""><a href="{{ route('gebaude.index') }}"><i class="fa fa-circle-o"></i> Reservierungen</a></li>
+            <li class=""><a href="{{ route('gebaude.index') }}"><i class="fa fa-circle-o"></i> Gebäude</a></li>
+            <li class=""><a href="{{ route('post.index') }}"><i class="fa fa-circle-o"></i> Räume</a></li>
+            <li class=""><a href="{{ route('post.index') }}"><i class="fa fa-circle-o"></i>Users</a></li>
+            <li class=""><a href="{{ route('post.index') }}"><i class="fa fa-circle-o"></i> WarteListe</a></li>
             @can('posts.category',Auth::user())
             <li class=""><a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i>Categories</a></li>
             @endcan
             @can('posts.tag',Auth::user())
             <li class=""><a href="{{ route('tag.index') }}"><i class="fa fa-circle-o"></i> Tags</a></li>
             @endcan
-            <li class=""><a href="{{ route('user.index') }}"><i class="fa fa-circle-o"></i> Users</a></li>
+            <li class=""><a href="{{ route('user.index') }}"><i class="fa fa-circle-o"></i> Admins</a></li>
             <li class=""><a href="{{ route('role.index') }}"><i class="fa fa-circle-o"></i> Roles</a></li>
             <li class=""><a href="{{ route('permission.index') }}"><i class="fa fa-circle-o"></i> Permissions</a></li>
         </li>

@@ -12,10 +12,9 @@ return('c est ma page de test');
 })->middleware('verified');
 
 //profile
-route::get('/profile','ProfilController@index')->name('profile')->middleware('verified');
-
-//Gebäude und Räume
-route::get('/posts','PostController@index')->name('posts.index')->middleware('verified');
+route::get('/profile','ProfilController@show')->name('profile')->middleware('verified');
+route::get('/edit/profile','ProfilController@create')->name('edit.profile');
+route::post('/edit/profile','ProfilController@store');
 
 //einzelne Raum
 route::get('/post','PostController@show')->name('posts.show')->middleware('verified');
@@ -35,6 +34,8 @@ Route::group(['namespace' => 'Admin'],function(){
 	Route::resource('admin/tag','TagController');
 	// Category Routes
 	Route::resource('admin/category','CategoryController');
+	//Gebäude
+	route::resource('admin/gebaude','GebaudeController');
 	// Admin Auth Routes
 	Route::get('admin-login', 'Auth\LoginController@showLoginForm')->name('admin.login');
 	Route::post('admin-login', 'Auth\LoginController@login');

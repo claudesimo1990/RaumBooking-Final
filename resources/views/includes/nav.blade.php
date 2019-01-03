@@ -22,13 +22,17 @@
                 register</a>
               </li>
             @else
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('posts.index')}}">
-                <i class="fa fa-edit"></i>
-              Reservieren</a>
+             <li class="nav-item">
+              <a class="nav-link" href="{{route('accueil')}}">
+                <i class="fa fa-fw fa-home"></i>
+              Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('contact')}}"><i class="fa fa-address-book"></i>Contact</a>
+              <a class="nav-link" href="{{route('gebaude.index')}}">
+                <i class="fa fa-edit"></i>Reservieren</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('contact')}}"><i class="fa fa-fw fa-envelope"></i>Contact</a>
             </li>
               <li class="nav-item dropdown">
                   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -41,26 +45,21 @@
                     <a class="dropdown-item" href="#">
                       <i class="fa fa-bell-o"></i>
                       <span class="badge badge-danger">9+</span>
-                        Notifications
-                    </a>
+                        Notifications</a>
                     <a class="dropdown-item" href="#">
                       <i class="fa fa-edit"></i>
-                        Reservierungen
-                    </a>
+                        Reservierungen</a>
                     <a class="dropdown-item" href="/forums">
                       <i class="fa fa-comments-o"></i>
-                        Forum
-                    </a>
+                        Forum</a>
                     <a class="dropdown-item" href="{{ route('profile') }}">
                     <i class="fa fa-user-o"></i>
-                        Profile
-                    </a>
+                        Profile</a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
                                      <i class="fa fa-sign-out"></i>
-                                    {{ __('Abmelden') }}
-                    </a>
+                                    {{ __('Abmelden') }}</a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf

@@ -51,7 +51,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($roles as $role)
+                        @forelse ($roles as $role)
                           <tr>
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $role->name }}</td>
@@ -73,7 +73,9 @@
                               </td>
                             </tr>
                           </tr>
-                        @endforeach
+                          @empty
+                          <p>Role nicht vorhanden !!!</p>
+                        @endforelse
                         </tbody>
                         <tfoot>
                         <tr>
