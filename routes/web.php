@@ -7,10 +7,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 //login an register
 Auth::routes(['verify' => true]);
 
-Route::get('/test',function(){
-return('c est ma page de test');
-})->middleware('verified');
-
 //profile
 route::get('/profile','ProfilController@show')->name('profile')->middleware('verified');
 route::get('/edit/profile','ProfilController@create')->name('edit.profile');
@@ -18,6 +14,11 @@ route::post('/edit/profile','ProfilController@store');
 
 //einzelne Raum
 route::get('/post','PostController@show')->name('posts.show')->middleware('verified');
+
+//Gebaude
+route::get('/gebaude','GebaudeController@index')->name('gebaude_index');
+
+route::get('/gebaude/{gebaude}','GebaudeController@show')->name('gebaude.show');
 
 //Admin Routes
 Route::group(['namespace' => 'Admin'],function(){
@@ -37,7 +38,7 @@ Route::group(['namespace' => 'Admin'],function(){
 	//Gebäude
 	route::resource('admin/gebaude','GebaudeController');
 	// Admin Auth Routes
-	Route::get('admin-login', 'Auth\LoginController@showLoginForm')->name('admin.login');
-	Route::post('admin-login', 'Auth\LoginController@login');
+	Route::get('admin', 'Auth\LoginController@showLoginForm')->name('admin.login');
+	Route::post('admin', 'Auth\LoginController@login');
 });
 

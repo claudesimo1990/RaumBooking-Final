@@ -25,7 +25,7 @@
         <!-- Map Column -->
         <div class="col-lg-8 mb-4">
           <!-- Embedded Google Map -->
-          <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=56.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed"></iframe>
+          <div style="overflow:hidden;width: 700px;height: 440px;"><iframe width="700" height="440" src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=Allemagne%2CGummersbach+(Titre)&amp;ie=UTF8&amp;t=k&amp;z=19&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><div><small><a href="https://embedgooglemaps.com/es/">https://embedgooglemaps.com/es/</a></small></div><div><small><a href="http://botonmegusta.org/">Boton Megusta</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><br />
         </div>
         <!-- Contact Details Column -->
         <div class="col-lg-4 mb-4">
@@ -59,7 +59,7 @@
             <div class="control-group form-group">
               <div class="controls">
                 <label>Name und vorname:</label>
-                <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                <input type="text" class="form-control" value="Jean claude simo" id="name" required data-validation-required-message="Please enter your name.">
                 <p class="help-block"></p>
               </div>
             </div>
@@ -72,7 +72,7 @@
             <div class="control-group form-group">
               <div class="controls">
                 <label>Email Addresse:</label>
-                <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+                <input type="email" class="form-control" value="claudesimo1990@gmail.com" id="email" required data-validation-required-message="Please enter your email address.">
               </div>
             </div>
             <div class="control-group form-group">

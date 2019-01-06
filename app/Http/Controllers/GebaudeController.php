@@ -1,23 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Gebaude;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class GebaudeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth:admin');
-    
-    }
     /**
      * Display a listing of the resource.
      *
@@ -25,8 +14,8 @@ class GebaudeController extends Controller
      */
     public function index()
     {
-       $gebaude = Gebaude::all();
-       return view('admin.gebaude.index',['gebaudes' => $gebaude]);
+        $gebaudes = Gebaude::all();
+        return view('users.posts_gebaude',compact('gebaudes'));
     }
 
     /**
@@ -36,7 +25,7 @@ class GebaudeController extends Controller
      */
     public function create()
     {
-        return view('admin.gebaude.create');
+        //
     }
 
     /**
@@ -58,9 +47,10 @@ class GebaudeController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+        $gebaude = Gebaude::find($id);
 
+        return view('users.posts_raum',compact(['gebaude']));
+    }
     /**
      * Show the form for editing the specified resource.
      *

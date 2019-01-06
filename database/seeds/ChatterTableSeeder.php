@@ -25,6 +25,15 @@ class ChatterTableSeeder extends Seeder
                     'created_at'     => '2016-07-29 15:13:02',
                     'updated_at'     => '2016-08-18 14:33:50',
                 ],
+                1 => [
+                    'id'             => 2,
+                    'name'           => 'simo',
+                    'email'          => 'claudesimo1990@gmail.com',
+                    'password'       => '$2y$10$mfp0SVz48GYQH3C0CahpPeEERQmkaEOqwUBKxNFa/ZLUk2E21G7cO',
+                    'remember_token' => 'RvlORzs8dyG8IYqssJGcuOY2F0vnjBy2PnHHTX2MoV7Hh6udjJd6hcTox3un',
+                    'created_at'     => '2016-07-29 15:13:02',
+                    'updated_at'     => '2016-08-18 14:33:50',
+                ],
             ]);
         }
 

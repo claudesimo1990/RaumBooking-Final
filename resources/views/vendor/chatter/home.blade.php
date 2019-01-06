@@ -19,6 +19,13 @@
 
 <div id="chatter" class="chatter_home">
 
+	<style>
+		#chatter{
+			margin-top: 60px !important;
+		}
+
+	</style>
+
 	<div id="chatter_hero">
 		<div id="chatter_hero_dimmer"></div>
 		<p>

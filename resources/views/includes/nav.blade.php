@@ -22,13 +22,30 @@
                 register</a>
               </li>
             @else
-             <li class="nav-item">
+            @if (isset(Auth::user()->profile->avatar))
+             <li style="margin-top:10px; " class="nav-item">
+              <a class="nav-link" href="{{route('accueil')}}">
+                <i class="fa fa-fw fa-home"></i>
+              Home</a>
+            </li>
+            <li style="margin-top:10px; " class="nav-item">
+              <a class="nav-link" href="{{route('gebaude_index')}}">
+                <i class="fa fa-edit"></i>Reservieren</a>
+            </li>
+            <li style="margin-top:10px; " class="nav-item">
+              <a class="nav-link" href="{{route('contact')}}"><i class="fa fa-fw fa-envelope"></i>Contact</a>
+            </li>
+              <li class="nav-item dropdown">
+                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                       <img style="vertical-align: middle;width: 50px; height: 50px;border-radius: 50%;" src="http://localhost:8000/storage/avatar/{{Auth::user()->profile->avatar}}" alt="Avatar" class="avatar">
+                  @else
+                      <li class="nav-item">
               <a class="nav-link" href="{{route('accueil')}}">
                 <i class="fa fa-fw fa-home"></i>
               Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('gebaude.index')}}">
+              <a class="nav-link" href="{{route('gebaude_index')}}">
                 <i class="fa fa-edit"></i>Reservieren</a>
             </li>
             <li class="nav-item">
@@ -36,7 +53,8 @@
             </li>
               <li class="nav-item dropdown">
                   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                  <i class="fa fa-user-o"></i>
+                    <i class="fa fa-user-o"></i>
+                    @endif
                 {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
 

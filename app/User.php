@@ -29,4 +29,14 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
+     public function buchung()
+    {
+        return $this->hasOne(User::class);
+    }
 }

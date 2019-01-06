@@ -17,6 +17,9 @@ class CreateRaumsTable extends Migration
             $table->increments('id');
             $table->integer('raum_number')->unique();
             $table->integer('gebaude_id');
+            $table->string('name');
+            $table->string('image');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

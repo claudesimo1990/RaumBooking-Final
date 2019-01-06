@@ -42,27 +42,28 @@
                       <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                          <th>S.No</th>
-                          <th>User Name</th>
-                          <th>Assigned Roles</th>
-                          <th>Status</th>
+                          <th>ID</th>
+                          <th>Geb.Name</th>
+                          <th>Anz_Etage</th>
+                          <th>Anz_Räume</th>
+                          <th>Image</th>
                           <th>Edit</th>
                           <th>Delete</th>
                         </tr>
                         </thead>
-                        <tbody>
-    
-                        </tbody>
+                        @foreach($gebaudes as $gebaude)
                         <tfoot>
                         <tr>
-                          <th>S.No</th>
-                          <th>User Name</th>
-                          <th>Assigned Roles</th>
-                          <th>Status</th>
-                          <th>Edit</th>
-                          <th>Delete</th>
+                          <th>{{$gebaude->id}}</th>
+                          <th>{{$gebaude->name}}</th>
+                          <th>{{$gebaude->anz_etage}}</th>
+                          <th>{{$gebaude->anz_raum}}</th>
+                          <th>{{$gebaude->image}}</th>
+                          <th><button class="btn btn-success">Edit</button></th>
+                          <th><button class="btn btn-danger">Delete</button></th>
                         </tr>
                         </tfoot>
+                        @endforeach
                       </table>
                     </div>
                     <!-- /.box-body -->

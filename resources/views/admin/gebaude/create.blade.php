@@ -32,7 +32,7 @@
               <div class="col-lg-offset-3 col-lg-6">
                 <div class="form-group">
                   <label for="name">Gebaude name</label>
-                  <input type="select" class="form-control" id="name" name="name" placeholder="User name" value="{{ old('name') }}">
+                  <input type="select" class="form-control" id="name" name="name" placeholder="Gebaude name" value="{{ old('name') }}">
                 </div>
 
                 <div class="form-group">

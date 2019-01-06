@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGebaudesTable extends Migration
+class CreateKontaktsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateGebaudesTable extends Migration
      */
     public function up()
     {
-        Schema::create('gebaudes', function (Blueprint $table) {
+        Schema::create('kontakts', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
             $table->string('name');
-            $table->string('image');
-            $table->integer('anz_raum');
-            $table->integer('anz_etage');
+            $table->integer('tel_number')->nullable();
+            $table->text('content');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateGebaudesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gebaudes');
+        Schema::dropIfExists('kontakts');
     }
 }
