@@ -3,6 +3,7 @@
 namespace App;
 
 
+use App\Profile;
 use App\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -30,7 +31,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password', 'remember_token',
     ];
 
-    public function profile()
+    public function profil()
     {
         return $this->hasOne(Profile::class);
     }
