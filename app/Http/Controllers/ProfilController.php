@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Profile;
 use App\User;
-use App\profile;
 use Illuminate\Broadcasting\Broadcasters\auth;
 use Illuminate\Http\Request;
 
@@ -57,7 +57,7 @@ class ProfilController extends Controller
             $request->avatar->storeAs('public/avatar',$avatar);    
         }
 
-        $profile = new profile;
+        $profile = new Profile;
 
         $profile->vorname = $request->vorname;
         $profile->matrikelnummer = $request->matrikelnummer;
@@ -83,7 +83,7 @@ class ProfilController extends Controller
     {
         $users = User::find(auth()->id());
 
-        $profiles = profile::where('user_id',auth()->id())->get();
+        $profiles = Profile::where('user_id',auth()->id())->get();
 
         // dd($profiles);
 
