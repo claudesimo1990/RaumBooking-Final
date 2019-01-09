@@ -20,6 +20,11 @@ route::get('/gebaude','GebaudeController@index')->name('gebaude_index');
 
 route::get('/gebaude/{gebaude}','GebaudeController@show')->name('gebaude.show');
 
+//Buchung
+route::get('/gebaude/{id}/{name}','BuchungController@create')->name('Buchung.create');
+
+route::post('/gebaude/{id}/{name}','BuchungController@store');
+
 //Admin Routes
 Route::group(['namespace' => 'Admin'],function(){
 	Route::get('admin/home','HomeController@index')->name('admin.home');

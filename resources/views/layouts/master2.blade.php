@@ -62,6 +62,16 @@
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- If using flash()->important() or flash()->overlay(), you'll need to pull in the JS for Twitter Bootstrap. -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+    $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+    </script>
+
+    <script>
+        $('#flash-overlay-modal').modal();
+    </script>
     <script>
     $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
     </script>

@@ -31,7 +31,7 @@
           <p><strong>created_at : </strong>{{$raum->created_at}}</p>
           <p><strong>updated_at : </strong>{{$raum->updated_at}}</p>
           <p><strong>Status : </strong> <span style="color:red;">{{ $raum->status ? 'Frei' : 'gebucht'}}</span></p>
-          <a class="btn btn-secondary" href="{{ $raum->status ? '/gebaude' : ''}}">buchen
+          <a class="btn btn-secondary" href="{{ $raum->status ? route('Buchung.create',[$raum->gebaude->id,$raum->name]) : ''}}">buchen
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
         </div>

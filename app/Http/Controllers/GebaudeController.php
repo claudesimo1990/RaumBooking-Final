@@ -48,7 +48,7 @@ class GebaudeController extends Controller
     public function show($id)
     {
         $gebaude = Gebaude::find($id);
-
+        
         return view('users.posts_raum',compact(['gebaude']));
     }
     /**
