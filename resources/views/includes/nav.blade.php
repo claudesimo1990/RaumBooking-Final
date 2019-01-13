@@ -40,7 +40,7 @@
             </li>
               <li class="nav-item dropdown">
                   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                       <img style="vertical-align: middle;width: 50px; height: 50px;border-radius: 50%;" src="http://localhost:8000/storage/avatar/{{Auth::user()->profil->avatar}}" alt="Avatar" class="avatar">
+                       <img style="vertical-align: middle;width: 50px; height: 50px;border-radius: 50%;" src="http://159.89.17.251/storage/avatar/{{Auth::user()->profil->avatar}}" alt="Avatar" class="avatar">
                   @else
                       <li class="nav-item">
               <a class="nav-link" href="{{route('accueil')}}">
