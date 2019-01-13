@@ -35,7 +35,7 @@
       <div class="box-body">
         <div class="box">
                     <div class="box-header">
-                      <h3 class="box-title">Data Table With Full Features</h3>
+                      <h3 class="box-title">Benutzer Table</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -43,22 +43,23 @@
                         <thead>
                         <tr>
                           <th>ID</th>
-                          <th>Geb.Name</th>
-                          <th>Anz_Etage</th>
-                          <th>Anz_Räume</th>
-                          <th>Image</th>
-                          <th>Edit</th>
-                          <th>Delete</th>
-                        </tr>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Konto bestätigt ?</th>
+                          <th>Created at</th>
+                          <th>Updated at</th>
+                         </tr>
                         </thead>
-                        @foreach($gebaudes as $gebaude)
+                        @foreach($benutzer as $user)
                         <tfoot>
                         <tr>
-                          <th>{{$gebaude->id}}</th>
-                          <th>{{$gebaude->name}}</th>
-                          <th>{{$gebaude->anz_etage}}</th>
-                          <th>{{$gebaude->anz_raum}}</th>
-                          <th>{{$gebaude->image}}</th>
+                          <th>{{$user->id}}</th>
+                          <th>{{$user->name}}</th>
+                          <th>{{$user->email}}</th>
+                          <th>{{$user->email_verified_at ? 'JA' : 'NEIN' }} </th>
+                          <th>{{$user->created_at}}</th>
+                          <th>{{$user->updated_at}}</th>
+
                           <th><button class="btn btn-success">Edit</button></th>
                           <th><button class="btn btn-danger">Delete</button></th>
                         </tr>
@@ -67,7 +68,7 @@
                       </table>
                     </div>
                     <hr>
-                    <span>{{$gebaudes->links()}}</span>
+                    <span>{{$benutzer->links()}}</span>
                     <!-- /.box-body -->
                   </div>
       </div>

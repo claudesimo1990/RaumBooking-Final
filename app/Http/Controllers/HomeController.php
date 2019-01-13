@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Gebaude;
 use Illuminate\Http\Request;
 
 class homeController extends Controller
@@ -21,8 +22,9 @@ class homeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('app.index');
-    }
+     public function index()
+     {
+        $gebname = Gebaude::all();
+        return view('app.index',compact('gebname'));
+     }
 }

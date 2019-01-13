@@ -25,7 +25,7 @@ class GebaudeController extends Controller
      */
     public function index()
     {
-       $gebaude = Gebaude::all();
+       $gebaude = Gebaude::paginate(10);
        return view('admin.gebaude.index',['gebaudes' => $gebaude]);
     }
 

@@ -3,6 +3,7 @@
 namespace App;
 
 
+use App\Buchung;
 use App\Profile;
 use App\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -38,6 +39,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
      public function buchung()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(Buchung::class);
     }
 }

@@ -27,9 +27,9 @@
         <li class="active treeview">
             <li class=""><a href="{{ route('gebaude.index') }}"><i class="fa fa-circle-o"></i> Reservierungen</a></li>
             <li class=""><a href="{{ route('gebaude.index') }}"><i class="fa fa-circle-o"></i> Gebäude</a></li>
-            <li class=""><a href="{{ route('post.index') }}"><i class="fa fa-circle-o"></i> Räume</a></li>
-            <li class=""><a href="{{ route('post.index') }}"><i class="fa fa-circle-o"></i>Users</a></li>
-            <li class=""><a href="{{ route('post.index') }}"><i class="fa fa-circle-o"></i> WarteListe</a></li>
+            <li class=""><a href="{{ route('raume.index') }}"><i class="fa fa-circle-o"></i> Räume</a></li>
+            <li class=""><a href="{{ route('benutzer.index') }}"><i class="fa fa-circle-o"></i>Benutzer</a></li>
+            <li class=""><a href="{{ route('benutzer.index') }}"><i class="fa fa-circle-o"></i> WarteListe</a></li>
             @can('posts.category',Auth::user())
             <li class=""><a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i>Categories</a></li>
             @endcan

@@ -22,7 +22,7 @@
     <!-- Default box -->
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title">Gebäude</h3>
+        <h3 class="box-title">Räume</h3>
         <a class='col-lg-offset-5 btn btn-success' href="{{ route('gebaude.create') }}">Add New</a>
         @include('includes2.messages')
         <div class="box-tools pull-right">
@@ -35,7 +35,7 @@
       <div class="box-body">
         <div class="box">
                     <div class="box-header">
-                      <h3 class="box-title">Data Table With Full Features</h3>
+                      <h3 class="box-title">Unsere Räume</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -43,22 +43,22 @@
                         <thead>
                         <tr>
                           <th>ID</th>
-                          <th>Geb.Name</th>
-                          <th>Anz_Etage</th>
-                          <th>Anz_Räume</th>
+                          <th>Raum.Name</th>
+                          <th>Number</th>
+                          <th>Gebäude ID</th>
                           <th>Image</th>
                           <th>Edit</th>
                           <th>Delete</th>
                         </tr>
                         </thead>
-                        @foreach($gebaudes as $gebaude)
+                        @foreach($raume as $raum)
                         <tfoot>
                         <tr>
-                          <th>{{$gebaude->id}}</th>
-                          <th>{{$gebaude->name}}</th>
-                          <th>{{$gebaude->anz_etage}}</th>
-                          <th>{{$gebaude->anz_raum}}</th>
-                          <th>{{$gebaude->image}}</th>
+                          <th>{{$raum->id}}</th>
+                          <th>{{$raum->name}}</th>
+                          <th>{{$raum->number}}</th>
+                          <th>{{$raum->gebaude->id}}</th>
+                          <th>{{$raum->image}}</th>
                           <th><button class="btn btn-success">Edit</button></th>
                           <th><button class="btn btn-danger">Delete</button></th>
                         </tr>
@@ -67,7 +67,7 @@
                       </table>
                     </div>
                     <hr>
-                    <span>{{$gebaudes->links()}}</span>
+                    <span> {{$raume->links()}} </span>
                     <!-- /.box-body -->
                   </div>
       </div>

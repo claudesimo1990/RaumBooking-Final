@@ -11,10 +11,10 @@ class GebaudesTableSeeder extends Seeder
      */
     public function run()
     {
-        $gebaude = factory(App\Gebaude::class, 6)->create();
+        $gebaude = factory(App\Gebaude::class, 20)->create();
 
         $gebaude->each(function($gebaude){
-           factory(App\Raum::class, 10)->create([
+           factory(App\Raum::class, 20)->create([
               'gebaude_id' => $gebaude->id 
            ]);
         });

@@ -70,6 +70,6 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-            return redirect('/login')->flash('register succes')->success();
+            return redirect('/login');
     }
 }

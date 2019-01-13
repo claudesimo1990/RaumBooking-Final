@@ -68,8 +68,8 @@ class ProfilController extends Controller
         $profile->avatar = $avatar;
         
         $profile->save();
-
-        return redirect('/profile')->with('success', 'Ihre Daten wurden erfolgreich registriert');
+        flash('Ihre Profile wurde erfolreich created !!')->success();
+        return redirect('/profile');
 
     }
 

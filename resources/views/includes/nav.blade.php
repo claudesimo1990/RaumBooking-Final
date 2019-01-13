@@ -29,6 +29,9 @@
               Home</a>
             </li>
             <li style="margin-top:10px; " class="nav-item">
+              <a class="nav-link" href="#"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i>Kalender</a>
+            </li>
+            <li style="margin-top:10px; " class="nav-item">
               <a class="nav-link" href="{{route('gebaude_index')}}">
                 <i class="fa fa-edit"></i>Reservieren</a>
             </li>

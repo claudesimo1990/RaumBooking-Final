@@ -41,7 +41,7 @@
       <hr>
   <!-- /.row -->
   @endforeach
-  <hr>
+  <p>{{$gebaudes->links()}}</p>
 </div>
 @stop
 

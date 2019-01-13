@@ -24,7 +24,7 @@
            <a href="#"><img class="card-img-top" src="{{ asset('/bilder/IMG_4152.JPG') }}" alt=""></a>
            <div class="card-body">
              <h4 class="card-title">
-               <a href="#">Project One</a>
+               <a href="#"> {{ $gebname[0]->name }} </a>
              </h4>
              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
            </div>
@@ -35,7 +35,7 @@
            <a href="#"><img class="card-img-top" src="{{ asset('/bilder/IMG_4150.JPG') }}" alt=""></a>
            <div class="card-body">
              <h4 class="card-title">
-               <a href="#">Project Two</a>
+               <a href="#">{{ $gebname[1]->name }}</a>
              </h4>
              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
            </div>
@@ -46,7 +46,7 @@
            <a href="#"><img class="card-img-top" src="{{ asset('/bilder/IMG_4153.JPG') }}" alt=""></a>
            <div class="card-body">
              <h4 class="card-title">
-               <a href="#">Project Three</a>
+               <a href="#">{{ $gebname[2]->name }}</a>
              </h4>
              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
            </div>
@@ -57,7 +57,7 @@
            <a href="#"><img class="card-img-top" src="{{ asset('/bilder/IMG_4157.JPG') }}" alt=""></a>
            <div class="card-body">
              <h4 class="card-title">
-               <a href="#">Project Four</a>
+               <a href="#">{{ $gebname[3]->name }}</a>
              </h4>
              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
            </div>
@@ -68,7 +68,7 @@
            <a href="#"><img class="card-img-top" src="{{ asset('/bilder/IMG_4151.JPG') }}" alt=""></a>
            <div class="card-body">
              <h4 class="card-title">
-               <a href="#">Project Five</a>
+               <a href="#">{{ $gebname[4]->name }}</a>
              </h4>
              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
            </div>
@@ -79,7 +79,7 @@
            <a href="#"><img class="card-img-top" src="{{ asset('/bilder/IMG_4149.JPG') }}" alt=""></a>
            <div class="card-body">
              <h4 class="card-title">
-               <a href="#">Project Six</a>
+               <a href="#">{{ $gebname[5]->name }}</a>
              </h4>
              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
            </div>

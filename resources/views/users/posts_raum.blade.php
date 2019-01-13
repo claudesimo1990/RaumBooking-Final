@@ -16,7 +16,7 @@
     <small></small>
   </h1>
 
-    @foreach($gebaude->raume as $raum)   
+    @foreach($raume as $raum)   
 
     <!-- Project One -->
       <div class="row">
@@ -42,6 +42,7 @@
   <!-- /.row -->
   @endforeach
   <hr>
+  {{$raume->links()}}
 </div>
 @stop
 

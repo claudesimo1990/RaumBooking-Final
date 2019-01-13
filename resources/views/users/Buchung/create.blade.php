@@ -36,7 +36,7 @@
           <div class="form-group">
             <label class="col-lg-3 control-label">Von :</label>
             <div class="col-lg-8">
-              <input class="form-control{{ $errors->has('von') ? ' is-invalid' : '' }}" name="von" type="date" value="{{ old('von') }}" >
+              <input class="form-control{{ $errors->has('von') ? ' is-invalid' : '' }}" name="von" type="datetime-local" value="{{ old('von') }}" >
               @if ($errors->has('von'))
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('von') }}</strong>
@@ -47,7 +47,7 @@
           <div class="form-group">
             <label class="col-lg-3 control-label">bis :</label>
             <div class="col-lg-8">
-              <input class="form-control {{ $errors->has('bis') ? ' is-invalid' : '' }}" name="bis" type="date" value="{{ old('bis') }}" required autofocus>
+              <input class="form-control {{ $errors->has('bis') ? ' is-invalid' : '' }}" name="bis" type="datetime-local" value="{{ old('bis') }}" required autofocus>
             </div>
           </div>
           <div class="form-group">

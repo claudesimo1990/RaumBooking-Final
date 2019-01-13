@@ -30,13 +30,19 @@
     26 => 'Illuminate\\Notifications\\NexmoChannelServiceProvider',
     27 => 'Illuminate\\Notifications\\SlackChannelServiceProvider',
     28 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    29 => 'Carbon\\Laravel\\ServiceProvider',
-    30 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    31 => 'App\\Providers\\AppServiceProvider',
-    32 => 'App\\Providers\\AuthServiceProvider',
-    33 => 'App\\Providers\\EventServiceProvider',
-    34 => 'App\\Providers\\RouteServiceProvider',
-    35 => 'DevDojo\\Chatter\\ChatterServiceProvider',
+    29 => 'MaddHatter\\LaravelFullcalendar\\ServiceProvider',
+    30 => 'Carbon\\Laravel\\ServiceProvider',
+    31 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    32 => 'SimpleSoftwareIO\\QrCode\\QrCodeServiceProvider',
+    33 => 'LaravelQRCode\\Providers\\QRCodeServiceProvider',
+    34 => 'MaddHatter\\LaravelFullcalendar\\ServiceProvider',
+    35 => 'SimpleSoftwareIO\\QrCode\\QrCodeServiceProvider',
+    36 => 'LaravelQRCode\\Providers\\QRCodeServiceProvider',
+    37 => 'App\\Providers\\AppServiceProvider',
+    38 => 'App\\Providers\\AuthServiceProvider',
+    39 => 'App\\Providers\\EventServiceProvider',
+    40 => 'App\\Providers\\RouteServiceProvider',
+    41 => 'DevDojo\\Chatter\\ChatterServiceProvider',
   ),
   'eager' => 
   array (
@@ -56,12 +62,16 @@
     13 => 'Laracasts\\Flash\\FlashServiceProvider',
     14 => 'Illuminate\\Notifications\\NexmoChannelServiceProvider',
     15 => 'Illuminate\\Notifications\\SlackChannelServiceProvider',
-    16 => 'Carbon\\Laravel\\ServiceProvider',
-    17 => 'App\\Providers\\AppServiceProvider',
-    18 => 'App\\Providers\\AuthServiceProvider',
-    19 => 'App\\Providers\\EventServiceProvider',
-    20 => 'App\\Providers\\RouteServiceProvider',
-    21 => 'DevDojo\\Chatter\\ChatterServiceProvider',
+    16 => 'MaddHatter\\LaravelFullcalendar\\ServiceProvider',
+    17 => 'Carbon\\Laravel\\ServiceProvider',
+    18 => 'LaravelQRCode\\Providers\\QRCodeServiceProvider',
+    19 => 'MaddHatter\\LaravelFullcalendar\\ServiceProvider',
+    20 => 'LaravelQRCode\\Providers\\QRCodeServiceProvider',
+    21 => 'App\\Providers\\AppServiceProvider',
+    22 => 'App\\Providers\\AuthServiceProvider',
+    23 => 'App\\Providers\\EventServiceProvider',
+    24 => 'App\\Providers\\RouteServiceProvider',
+    25 => 'DevDojo\\Chatter\\ChatterServiceProvider',
   ),
   'deferred' => 
   array (
@@ -168,6 +178,7 @@
     'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
     'NunoMaduro\\Collision\\Contracts\\Provider' => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    'qrcode' => 'SimpleSoftwareIO\\QrCode\\QrCodeServiceProvider',
   ),
   'when' => 
   array (
@@ -211,6 +222,9 @@
     array (
     ),
     'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider' => 
+    array (
+    ),
+    'SimpleSoftwareIO\\QrCode\\QrCodeServiceProvider' => 
     array (
     ),
   ),

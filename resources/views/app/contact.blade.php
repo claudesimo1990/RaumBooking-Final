@@ -29,7 +29,7 @@
         </div>
         <!-- Contact Details Column -->
         <div class="col-lg-4 mb-4">
-          <h3>Infos</h3>
+          <h3>Informationen</h3>
           <p>
             Steinmüllerallee 1
             <br>51643 Gummersbach
@@ -59,7 +59,7 @@
             <div class="control-group form-group">
               <div class="controls">
                 <label>Name und vorname:</label>
-                <input type="text" class="form-control" value="Jean claude simo" id="name" required data-validation-required-message="Please enter your name.">
+                <input type="text" class="form-control" value="{{$user->name}}" id="name" required data-validation-required-message="Please enter your name.">
                 <p class="help-block"></p>
               </div>
             </div>
@@ -72,7 +72,7 @@
             <div class="control-group form-group">
               <div class="controls">
                 <label>Email Addresse:</label>
-                <input type="email" class="form-control" value="claudesimo1990@gmail.com" id="email" required data-validation-required-message="Please enter your email address.">
+                <input type="email" class="form-control" value="{{$user->email}}" id="email" required data-validation-required-message="Please enter your email address.">
               </div>
             </div>
             <div class="control-group form-group">

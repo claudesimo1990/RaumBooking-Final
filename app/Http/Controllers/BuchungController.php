@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Buchung;
 use App\Gebaude;
+use App\Mail\BuchungEmails;
 use App\Raum;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class BuchungController extends Controller
 {
@@ -40,36 +43,41 @@ class BuchungController extends Controller
      */
     public function store(Request $request)
     {
+     // find aktuellen Raum der gebucht wird
+     $raum = Gebaude::find(request('id'))->raume()->where('name',request('name'))->first();
 
-     $raum = Gebaude::find(request('id'))->raume->where('name',request('name'))->first();
-
+      //validation
       $request->validate([
-
       'von' => ['required'],
       'bis' => ['required'],
       'kommentar' => ['required']
-       ]); 
-     
-     $buchung = new Buchung;
+       ]);
 
-     $buchung->gebaude_id = request('id');
-     $buchung->user_id = auth()->id();
-     $buchung->raum_id = $raum->id;
-     $buchung->von = request('von');
-     $buchung->qrcode = 12346483;
-     $buchung->bis = request('bis');
-
+     //create Buchung and flush in der Datenbank
+      $data = Buchung::create([  
+     'gebaude_id' => request('id'),
+     'user_id' => auth()->id(),
+      'raum_id' => $raum->raum_number,
+     'von' => request('von'),
+     'kommentar' => request('kommentar'),
+     'qrcode' => rand(1000, 10000000),
+     'bis' => request('bis')  
+      ]);
 
      //Update status Raum
-
      DB::table('raums')
      ->where('id',$raum->id)
      ->update(['status' => 0]);
 
-    //flush in der Datenbank
-     $buchung->save();
-     flash('Ihre Buchung wurde entgegen genommen Sie bekommen eine Bestätigung per Email ')->success();
-      return redirect('/gebaude');
+
+
+     //send Email to den eingelogte User
+
+      Mail::to($request->user())->send(new BuchungEmails($data));
+     flash('Ihre Buchung wurde entgegen genommen Sie bekommen eine Bestätigung per Email ')
+         ->success();
+         return redirect('/gebaude');
+
        }
 
     /**

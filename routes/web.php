@@ -2,10 +2,20 @@
 
 Route::get('/', 'AppController@accueil')->name('accueil');
 Route::get('/contact', 'AppController@contact')->name('contact')->middleware('verified');
-Route::get('/home', 'HomeController@index')->name('home');
+
+ Route::get('/home', 'HomeController@index')->name('home');
 
 //login an register
 Auth::routes(['verify' => true]);
+
+//Qr-code
+Route::get('qr-code', function () 
+{
+   return QRCode::sms('+55 (31) 1234-5678', 'Text to send!')
+                         ->setSize(4)
+                         ->setMargin(2)
+                         ->png();     
+});
 
 //profile
 route::get('/profile','ProfilController@show')->name('profile')->middleware('verified');
@@ -38,8 +48,10 @@ Route::group(['namespace' => 'Admin'],function(){
 	Route::resource('admin/post','PostController');
 	// Tag Routes
 	Route::resource('admin/tag','TagController');
-	// Category Routes
-	Route::resource('admin/category','CategoryController');
+	// Räume Routes
+	Route::resource('admin/raume','RaumController');
+	//  benutzer
+	Route::resource('admin/benutzer','benutzerController');
 	//Gebäude
 	route::resource('admin/gebaude','GebaudeController');
 	// Admin Auth Routes

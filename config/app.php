@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'RaumReservierung'),
+    'name' => env('APP_NAME', 'RaumReservierung TH Köln'),
 
     /*
     |--------------------------------------------------------------------------
@@ -159,6 +159,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        LaravelQRCode\Providers\QRCodeServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -172,7 +175,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        DevDojo\Chatter\ChatterServiceProvider::class,
+        DevDojo\Chatter\ChatterServiceProvider::class
 
     ],
 
@@ -222,6 +225,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'QRCode' => LaravelQRCode\Facades\QRCode::class,
 
     ],
 

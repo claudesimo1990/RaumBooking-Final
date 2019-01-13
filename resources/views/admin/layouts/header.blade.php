@@ -8,6 +8,14 @@
         <b>RaumReservierung</b> TH Köln</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
+          <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+      <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style>
+      html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+      </style>
+
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -16,6 +24,18 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+          <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a>
+          <div class="w3-dropdown-hover w3-hide-small">
+              <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></button>     
+              <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+                <a href="#" class="w3-bar-item w3-button">One new friend request</a>
+                <a href="#" class="w3-bar-item w3-button">John Doe posted on your wall</a>
+                <a href="#" class="w3-bar-item w3-button">Jane likes your post</a>
+              </div>
+            </div>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
+
           
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">

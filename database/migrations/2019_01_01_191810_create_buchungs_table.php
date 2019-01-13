@@ -18,7 +18,7 @@ class CreateBuchungsTable extends Migration
             $table->integer('gebaude_id');
             $table->integer('user_id');
             $table->integer('qrcode')->nullable();
-            $table->integer('raum_id');
+            $table->integer('raum_number');
             $table->date('von');
             $table->date('bis');
             $table->string('kommentar')->nullable();
