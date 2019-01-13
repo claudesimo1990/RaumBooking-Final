@@ -28,8 +28,8 @@
         <div class="col-md-5">
           <h3>Raum : {{$raum->raum_number}}</h3><br>
           <p><strong>Raum Name : </strong>{{$raum->name}}</p>
-          <p><strong>created_at : </strong>{{$raum->created_at}}</p>
-          <p><strong>updated_at : </strong>{{$raum->updated_at}}</p>
+          <p><strong>created_at : </strong>{{\Carbon\Carbon::parse($raum->created_at)->format('d/m/Y H:i:s')}}</p>
+          <p><strong>updated_at : </strong>{{\Carbon\Carbon::parse($raum->updated_at)->format('d/m/Y H:i:s')}}</p>
           <p><strong>Status : </strong> <span style="color:red;">{{ $raum->status ? 'Frei' : 'gebucht'}}</span></p>
           <a class="btn btn-secondary" href="{{ $raum->status ? route('Buchung.create',[$raum->gebaude->id,$raum->name]) : ''}}">buchen
             <span class="glyphicon glyphicon-chevron-right"></span>

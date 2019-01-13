@@ -29,8 +29,8 @@
           <h3>{{$gebaude->name}}</h3><br>
           <p><strong>Anzahl Etage  :  </strong>{{$gebaude->anz_etage}}</p>
           <p><strong>Anzahl Raum  :  </strong>{{$gebaude->anz_raum}}</p>
-          <p><strong>created_at  :  </strong>{{$gebaude->created_at}}</p>
-          <p><strong>updated_at  :  </strong>{{$gebaude->updated_at}}</p>
+          <p><strong>created_at  :  </strong>{{\Carbon\Carbon::parse($gebaude->created_at)->format('d/m/Y H:i:s')}}</p>
+          <p><strong>updated_at  :  </strong>{{\Carbon\Carbon::parse($gebaude->updated_at)->format('d/m/Y H:i:s')}}</p>
           <a class="btn btn-secondary" href="gebaude/{{$gebaude->id}}">Auswählen
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
