@@ -1,22 +1,12 @@
 <?php
 
 Route::get('/', 'AppController@accueil')->name('accueil');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/welcome', 'AppController@SendWelcomeEmail');
 Route::get('/contact', 'AppController@contact')->name('contact')->middleware('verified');
 
  Route::get('/home', 'HomeController@index')->name('home');
-
-//login an register
-Auth::routes(['verify' => true]);
-
-//Qr-code
-Route::get('qr-code', function () 
-{
-   return QRCode::sms('+55 (31) 1234-5678', 'Text to send!')
-                         ->setSize(4)
-                         ->setMargin(2)
-                         ->png();     
-});
-
 //profile
 route::get('/profile','ProfilController@show')->name('profile')->middleware('verified');
 route::get('/edit/profile','ProfilController@create')->name('edit.profile');
@@ -34,6 +24,10 @@ route::get('/gebaude/{gebaude}','GebaudeController@show')->name('gebaude.show');
 route::get('/gebaude/{id}/{name}','BuchungController@create')->name('Buchung.create');
 
 route::post('/gebaude/{id}/{name}','BuchungController@store');
+});
+
+//login an register
+Auth::routes(['verify' => true]);
 
 //Admin Routes
 Route::group(['namespace' => 'Admin'],function(){

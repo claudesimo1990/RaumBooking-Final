@@ -57,8 +57,8 @@
                           <th>{{$user->name}}</th>
                           <th>{{$user->email}}</th>
                           <th>{{$user->email_verified_at ? 'JA' : 'NEIN' }} </th>
-                          <th>{{$user->created_at}}</th>
-                          <th>{{$user->updated_at}}</th>
+                          <th>{{\Carbon\Carbon::parse($user->created_at)->format('d/m/Y H:i:s')}}</th>
+                          <th>{{\Carbon\Carbon::parse($user->updated_at)->format('d/m/Y H:i:s')}}</th>
 
                           <th><button class="btn btn-success">Edit</button></th>
                           <th><button class="btn btn-danger">Delete</button></th>

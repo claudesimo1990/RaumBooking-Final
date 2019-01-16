@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Gebaude;
 use App\User;
+use Illuminate\Auth\Middleware\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class AppController extends Controller
 {
