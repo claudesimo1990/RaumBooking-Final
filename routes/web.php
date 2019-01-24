@@ -6,7 +6,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/welcome', 'AppController@SendWelcomeEmail');
 Route::get('/contact', 'AppController@contact')->name('contact')->middleware('verified');
 //Calendar
- Route::get('events', 'EventController@index')->name('events');
+ Route::get('buchungskalendar', 'EventController@index')->name('events');
  Route::get('/home', 'HomeController@index')->name('home');
 //profile
 route::get('/profile','ProfilController@show')->name('profile')->middleware('verified');

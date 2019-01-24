@@ -56,7 +56,7 @@ class BuchungController extends Controller
      //create Buchung and flush in der Datenbank
 
       //Array color
-      $array  = ['#FF33BB', '#42FF33', '#3368FF', '#7D1468', '#F6071D'];
+      $array  = ['#FF33BB', '#42FF33', '#3368FF', '#7D1468', '#F6071D','#5E6265','#99D922'];
       $random = array_rand($array);
       $color  = $array[$random];
 
