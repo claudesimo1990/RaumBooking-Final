@@ -1,7 +1,7 @@
 @component('mail::message')
 # Gratulation ! 
 
-Hallo **{{$user->name}}** Sie haben den Raum : n°  ** {{$data->id}} **
+Hallo **{{$user->name}}** Sie haben den Raum : n°  ** {{$data->raum_number}} **
 für den Zeitraum von ** {{\Carbon\Carbon::parse($data->von)->format('d/m/Y H:i:s')}} ** bis ** {{\Carbon\Carbon::parse($data->bis)->format('d/m/Y H:i:s')}} ** erfolgreich gebucht!
 
 @component('mail::panel')
