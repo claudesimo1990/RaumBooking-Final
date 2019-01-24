@@ -22,6 +22,7 @@ class CreateBuchungsTable extends Migration
             $table->date('von');
             $table->date('bis');
             $table->string('kommentar')->nullable();
+            $table->string('color')->nullable();
             $table->timestamps();
         });
     }

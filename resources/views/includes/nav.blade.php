@@ -29,7 +29,7 @@
               Home</a>
             </li>
             <li style="margin-top:10px; " class="nav-item">
-              <a class="nav-link" href="#"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i>Kalender</a>
+              <a class="nav-link" href="{{ route('events') }}"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i>Kalender</a>
             </li>
             <li style="margin-top:10px; " class="nav-item">
               <a class="nav-link" href="{{route('gebaude_index')}}">
@@ -46,6 +46,10 @@
               <a class="nav-link" href="{{route('accueil')}}">
                 <i class="fa fa-fw fa-home"></i>
               Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('events')}}">
+                <i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i>Kalendar</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{route('gebaude_index')}}">

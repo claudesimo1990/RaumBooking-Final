@@ -33,7 +33,7 @@
                             <li><p><span class="glyphicon glyphicon-new-window one" style="width:50px;"></span><strong>semester : </strong>{{$profile->semester}}</p></li>
                               <li><p><span class="glyphicon glyphicon-map-marker one" style="width:50px;"></span><strong>Adresse : </strong>{{$profile->adresse}}</p></li>
                           </ul>
-                          <a class="btn btn-primary" href="{{route('edit.profile')}}">Profil update</a>
+                          <a class="btn btn-primary" href="/profile/{{$profile->id}}">Profil update</a>
                       </div>
                   </div>
              </div>

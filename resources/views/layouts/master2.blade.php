@@ -25,8 +25,9 @@
     <link href="{{ asset('/css/modern-business.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-         @yield('css')
-
+     @yield('css')
+     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+  
     @if(Request::is( Config::get('chatter.routes.home') . '/*') )
      <link rel="stylesheet" href="/css/forumscss.css" />
     @endif

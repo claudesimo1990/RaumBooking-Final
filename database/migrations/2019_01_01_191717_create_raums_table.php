@@ -19,7 +19,7 @@ class CreateRaumsTable extends Migration
             $table->integer('gebaude_id');
             $table->string('name');
             $table->string('image');
-            $table->boolean('status')->default(true);
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

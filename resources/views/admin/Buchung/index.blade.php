@@ -22,7 +22,7 @@
     <!-- Default box -->
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title">Räume</h3>
+        <h3 class="box-title">Buchungen</h3>
         <a class='col-lg-offset-5 btn btn-success' href="{{ route('gebaude.create') }}">Add New</a>
         @include('includes2.messages')
         <div class="box-tools pull-right">
@@ -35,7 +35,7 @@
       <div class="box-body">
         <div class="box">
                     <div class="box-header">
-                      <h3 class="box-title">Unsere Räume</h3>
+                      <h3 class="box-title">Benutzer Table</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -43,23 +43,27 @@
                         <thead>
                         <tr>
                           <th>ID</th>
-                          <th>Raum.Name</th>
-                          <th>Number</th>
-                          <th>Gebäude ID</th>
-                          <th>Bilder</th>
-                          <th>Edit</th>
-                          <th>Delete</th>
-                        </tr>
+                          <th>Geb.ID</th>
+                          <th>Raum.ID</th>
+                          <th>User.ID</th>
+                          <th>QR-CODE</th>
+                          <th>Von</th>
+                          <th>Bis</th>
+                          <th>Bemerkung</th>
+                         </tr>
                         </thead>
-                    
-                        @foreach($raume as $raum)
+                        @foreach($buchungList as $buchung)
                         <tfoot>
                         <tr>
-                          <th>{{$raum->id}}</th>
-                          <th>{{$raum->name}}</th>
-                          <th>{{$raum->raum_number}}</th>
-                          <th>{{$raum->gebaude->id}}</th>
-                          <th>{{$raum->image}}</th>
+                          <th>{{$buchung->id}}</th>
+                          <th>{{$buchung->gebaude_id}}</th>
+                          <th>{{$buchung->raum_id}}</th>
+                          <th>{{$buchung->user_id}}</th>
+                          <th>{{$buchung->qrcode}}</th>
+                          <th>{{\Carbon\Carbon::parse($buchung->von)->format('d/m/Y H:i:s')}}</th>
+                          <th>{{\Carbon\Carbon::parse($buchung->bis)->format('d/m/Y H:i:s')}}</th>
+                          <th>{{$buchung->kommentar}}</th>
+
                           <th><button class="btn btn-success">Edit</button></th>
                           <th><button class="btn btn-danger">Delete</button></th>
                         </tr>
@@ -68,7 +72,7 @@
                       </table>
                     </div>
                     <hr>
-                    <span> {{$raume->links()}} </span>
+                    <span>{{$buchungList->links()}}</span>
                     <!-- /.box-body -->
                   </div>
       </div>

@@ -43,6 +43,7 @@
     39 => 'App\\Providers\\EventServiceProvider',
     40 => 'App\\Providers\\RouteServiceProvider',
     41 => 'DevDojo\\Chatter\\ChatterServiceProvider',
+    42 => 'MaddHatter\\LaravelFullcalendar\\ServiceProvider',
   ),
   'eager' => 
   array (
@@ -72,6 +73,7 @@
     23 => 'App\\Providers\\EventServiceProvider',
     24 => 'App\\Providers\\RouteServiceProvider',
     25 => 'DevDojo\\Chatter\\ChatterServiceProvider',
+    26 => 'MaddHatter\\LaravelFullcalendar\\ServiceProvider',
   ),
   'deferred' => 
   array (

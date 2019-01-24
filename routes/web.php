@@ -5,24 +5,25 @@ Route::get('/', 'AppController@accueil')->name('accueil');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/welcome', 'AppController@SendWelcomeEmail');
 Route::get('/contact', 'AppController@contact')->name('contact')->middleware('verified');
-
+//Calendar
+ Route::get('events', 'EventController@index')->name('events');
  Route::get('/home', 'HomeController@index')->name('home');
 //profile
 route::get('/profile','ProfilController@show')->name('profile')->middleware('verified');
 route::get('/edit/profile','ProfilController@create')->name('edit.profile');
 route::post('/edit/profile','ProfilController@store');
 
+//profile Update
+route::get('/profile/{id}','ProfilController@edit');
+route::post('/profile/{id}','ProfilController@update');
+
 //einzelne Raum
 route::get('/post','PostController@show')->name('posts.show')->middleware('verified');
-
 //Gebaude
 route::get('/gebaude','GebaudeController@index')->name('gebaude_index');
-
 route::get('/gebaude/{gebaude}','GebaudeController@show')->name('gebaude.show');
-
 //Buchung
 route::get('/gebaude/{id}/{name}','BuchungController@create')->name('Buchung.create');
-
 route::post('/gebaude/{id}/{name}','BuchungController@store');
 });
 
@@ -48,6 +49,8 @@ Route::group(['namespace' => 'Admin'],function(){
 	Route::resource('admin/benutzer','benutzerController');
 	//Gebäude
 	route::resource('admin/gebaude','GebaudeController');
+	//Buchungen
+	route::resource('admin/buchungen','BuchungController');
 	// Admin Auth Routes
 	Route::get('admin', 'Auth\LoginController@showLoginForm')->name('admin.login');
 	Route::post('admin', 'Auth\LoginController@login');

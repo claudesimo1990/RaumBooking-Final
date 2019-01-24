@@ -54,20 +54,26 @@ class BuchungController extends Controller
        ]);
 
      //create Buchung and flush in der Datenbank
+
+      //Array color
+      $array  = ['#FF33BB', '#42FF33', '#3368FF', '#7D1468', '#F6071D'];
+      $random = array_rand($array);
+      $color  = $array[$random];
+
       $data = Buchung::create([  
      'gebaude_id' => request('id'),
      'user_id' => auth()->id(),
-      'raum_id' => $raum->raum_number,
+      'raum_number' => $raum->raum_number,
      'von' => request('von'),
      'kommentar' => request('kommentar'),
      'qrcode' => rand(1000, 10000000),
-     'bis' => request('bis')  
+     'bis' => request('bis'),
+     'color' => $color 
       ]);
-
      //Update status Raum
      DB::table('raums')
-     ->where('id',$raum->id)
-     ->update(['status' => 0]);
+     ->where('raum_number',$raum->raum_number)
+     ->update(['status' => 1]);
 
 
 

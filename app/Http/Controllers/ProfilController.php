@@ -97,8 +97,11 @@ class ProfilController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    { 
+
+        $user = User::find(auth()->id());  
+        $profile = Profile::find($id);
+        return view('users.profileUpdate',compact(['user','profile']));
     }
 
     /**
@@ -110,7 +113,36 @@ class ProfilController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+         
+         'vorname' => 'required',
+         'matrikelnummer' => 'required | integer',
+         'studiengang' => 'required',
+         'semester' => 'required | integer',
+         'adresse' => 'required',
+         'avatar' => 'required | mimes:jpeg,png'
+        ]);
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->avatar->getClientOriginalName();
+            $bild = Profile::find($id)->avatar;
+            if ($bild == $avatar) {
+                return 'profilbild schon vorhanden !!';
+                return back();
+            }else{
+             $request->avatar->storeAs('public/avatar',$avatar);    
+            }
+
+            Profile::Update([
+              'vorname' => $request->vorname,
+              'matrikelnummer' => $request->matrikelnummer,
+              'studiengang' => $request->studiengang,
+              'semester' => $request->semester,
+              'adresse' => $request->adresse,
+              'avartar' => $request->avartar
+            ]);         
+        }
+
+
     }
 
     /**
