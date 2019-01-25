@@ -25,6 +25,7 @@ route::get('/gebaude/{gebaude}','GebaudeController@show')->name('gebaude.show');
 //Buchung
 route::get('/gebaude/{id}/{name}','BuchungController@create')->name('Buchung.create');
 route::post('/gebaude/{id}/{name}','BuchungController@store');
+route::get('/singlebuchung','BuchungController@UserBuchung')->name('singlebuchung');
 });
 
 //login an register

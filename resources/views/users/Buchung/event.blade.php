@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 <div class="container-fluid">
-    <div class="row justify-content-center"style="margin-right: -280px;margin-left: -280px">
+    <div class="row justify-content-center"style="margin-right: -300px;margin-left: -280px">
         <div class="col-md-8 col-md-offset-2">
             <div class="card">
                 <div class="card-header">Calender Aller Buchungen</div>

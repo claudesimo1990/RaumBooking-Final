@@ -68,7 +68,7 @@ class ProfilController extends Controller
         $profile->avatar = $avatar;
         
         $profile->save();
-        flash('Ihre Profile wurde erfolreich created !!')->success();
+        flash('Ihre Profile wurde erfolreich hergestellt !!')->success();
         return redirect('/profile');
 
     }
@@ -82,11 +82,7 @@ class ProfilController extends Controller
     public function show()
     {
         $users = User::find(auth()->id());
-
         $profiles = Profile::where('user_id',auth()->id())->get();
-
-        // dd($profiles);
-
         return view('users.profile', compact(['users','profiles']));
     }
 
@@ -122,17 +118,18 @@ class ProfilController extends Controller
          'adresse' => 'required',
          'avatar' => 'required | mimes:jpeg,png'
         ]);
-        if ($request->hasFile('avatar')) {
+        if ($request->hasFile('avatar')) 
+        {
             $avatar = $request->avatar->getClientOriginalName();
             $bild = Profile::find($id)->avatar;
             if ($bild == $avatar) {
-                return 'profilbild schon vorhanden !!';
-                return back();
+                flash('Das Bild ist bereits verwendet !')->error();
+                return back()->withInput();
             }else{
              $request->avatar->storeAs('public/avatar',$avatar);    
             }
-
-            Profile::Update([
+            $profile = Profile::find($id);
+            $profile->Update([
               'vorname' => $request->vorname,
               'matrikelnummer' => $request->matrikelnummer,
               'studiengang' => $request->studiengang,
@@ -141,7 +138,8 @@ class ProfilController extends Controller
               'avartar' => $request->avartar
             ]);         
         }
-
+      flash('Ihre Profile ist up-to-date :)')->success();
+      return redirect('/profile');
 
     }
 

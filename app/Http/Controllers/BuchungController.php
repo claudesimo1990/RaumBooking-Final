@@ -7,6 +7,7 @@ use App\Gebaude;
 use App\Mail\BuchungEmails;
 use App\Raum;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\DB;
@@ -43,6 +44,13 @@ class BuchungController extends Controller
      */
     public function store(Request $request)
     {
+      if (\Carbon\Carbon::parse($request->von) < Carbon::now() || \Carbon\Carbon::parse($request->bis) < Carbon::now() && \Carbon\Carbon::parse($request->von)->format('H:i:s') > '09:00:00' || \Carbon\Carbon::parse($request->bis)->format('H:i:s') < '22:00:00') 
+      {
+
+           flash('Das Datum ,dass Sie eingegeben haben ist nicht korrekt !! ')->error();
+           return back()->withInput();
+       } 
+      
      // find aktuellen Raum der gebucht wird
      $raum = Gebaude::find(request('id'))->raume()->where('name',request('name'))->first();
 
@@ -84,6 +92,11 @@ class BuchungController extends Controller
          ->success();
          return redirect('/gebaude');
 
+       }
+       public function UserBuchung()
+       {
+          $singlebuchung = Buchung::all();
+          return view('users.Buchung.singlebuchung',compact('singlebuchung'));
        }
 
     /**

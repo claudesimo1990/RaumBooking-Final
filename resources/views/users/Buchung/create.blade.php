@@ -1,5 +1,7 @@
 @extends('layouts.master2')
-
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/user/profile.css') }}">
+@stop
 @section('nav')
 
 @include('includes.nav')
@@ -7,17 +9,10 @@
 @stop
 
 @section('content')
-<div class="container"><br><br>
-    <hr>
-  <div class="row">
-      
+<div class="container">
+  <div class="row">  
       <!-- edit form column -->
       <div class="col-md-9 personal-info">
-        <div class="alert alert-info alert-dismissable">
-          <a class="panel-close close" data-dismiss="alert">×</a> 
-          <i class="fa fa-coffee"></i>
-           <h5>Herr/Frau <strong> {{$user->name}} </strong> Wir  freuen uns Sie zu sehen !!.</h5>
-        </div> <br>
         <h3><strong>Reservierung</strong></h3>
         <br>
         
