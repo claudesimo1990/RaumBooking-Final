@@ -1,11 +1,11 @@
 @extends('layouts.master2')
+
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/user/profile.css') }}">
 @stop
+
 @section('nav')
-
 @include('includes.nav')
-
 @stop
 
 @section('content')

@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Profile;
 use App\User;
+use Faker\Provider\File;
 use Illuminate\Broadcasting\Broadcasters\auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProfilController extends Controller
 {
@@ -120,13 +123,19 @@ class ProfilController extends Controller
         ]);
         if ($request->hasFile('avatar')) 
         {
+            $profilbild = '';
             $avatar = $request->avatar->getClientOriginalName();
             $bild = Profile::find($id)->avatar;
             if ($bild == $avatar) {
-                flash('Das Bild ist bereits verwendet !')->error();
-                return back()->withInput();
+                $profilbild = $bild;
+                flash('Dieses Bild existiert bereits und wird wiederwervendet !')->success(); 
             }else{
-             $request->avatar->storeAs('public/avatar',$avatar);    
+             $request->avatar->storeAs('public/avatar',$avatar); 
+             $profilbild = $avatar;
+             //hier das alte Bild löschen
+             chmod("storage/avatar", 0755);
+             Storage::delete('public/avatar/'.$bild);
+             flash('Das Bild wurde erfolreich hochgeladet !')->success();   
             }
             $profile = Profile::find($id);
             $profile->Update([
@@ -135,11 +144,11 @@ class ProfilController extends Controller
               'studiengang' => $request->studiengang,
               'semester' => $request->semester,
               'adresse' => $request->adresse,
-              'avartar' => $request->avartar
+              'avatar' => $profilbild
             ]);         
         }
-      flash('Ihre Profile ist up-to-date :)')->success();
-      return redirect('/profile');
+              flash('Ihre Profile ist up-to-date :)')->success();
+              return redirect('/profile');
 
     }
 

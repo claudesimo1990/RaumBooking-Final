@@ -44,10 +44,10 @@ class BuchungController extends Controller
      */
     public function store(Request $request)
     {
-      if (\Carbon\Carbon::parse($request->von) < Carbon::now() || \Carbon\Carbon::parse($request->bis) < Carbon::now() && \Carbon\Carbon::parse($request->von)->format('H:i:s') > '09:00:00' || \Carbon\Carbon::parse($request->bis)->format('H:i:s') < '22:00:00') 
+      if (! \Carbon\Carbon::parse($request->von)->format('d/m/Y') >= Carbon::now()->format('d/m/Y') && \Carbon\Carbon::parse($request->bis)->format('d/m/Y') > Carbon::now()->format('d/m/Y') && ! \Carbon\Carbon::parse($request->von)->format('H:i:s') >= '09:00:00' && ! \Carbon\Carbon::parse($request->bis)->format('H:i:s') <= '22:00:00') 
       {
 
-           flash('Das Datum ,dass Sie eingegeben haben ist nicht korrekt !! ')->error();
+           flash('Das Datum, welches Sie angegeben haben liegt in der Vergangenheit!')->error();
            return back()->withInput();
        } 
       
@@ -71,7 +71,7 @@ class BuchungController extends Controller
       $data = Buchung::create([  
      'gebaude_id' => request('id'),
      'user_id' => auth()->id(),
-      'raum_number' => $raum->raum_number,
+     'raum_number' => $raum->raum_number,
      'von' => request('von'),
      'kommentar' => request('kommentar'),
      'qrcode' => rand(1000, 10000000),
