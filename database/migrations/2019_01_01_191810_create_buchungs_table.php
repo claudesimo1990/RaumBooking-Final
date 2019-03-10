@@ -17,11 +17,12 @@ class CreateBuchungsTable extends Migration
             $table->increments('id');
             $table->integer('gebaude_id');
             $table->integer('user_id');
+            $table->integer('raum_id');
             $table->integer('qrcode')->nullable();
             $table->integer('raum_number');
-            $table->date('von');
-            $table->date('bis');
-            $table->string('kommentar')->nullable();
+            $table->time('von')->nullable();
+            $table->time('bis')->nullable();
+            $table->string('event')->nullable();
             $table->string('color')->nullable();
             $table->timestamps();
         });

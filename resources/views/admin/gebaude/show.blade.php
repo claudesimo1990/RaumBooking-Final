@@ -20,7 +20,7 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Add Gebäude</h3>
+              <h3 class="box-title">Edit Gebäude</h3>
             </div>
 
             @include('includes2.messages')
@@ -32,17 +32,17 @@
               <div class="col-lg-offset-3 col-lg-6">
                 <div class="form-group">
                   <label for="name">Gebaude name</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Gebaude name" value="{{ old('name') }}">
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Gebaude name" value="{{$gebaude->name}}">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlSelect2">Anzahl Etage</label>
-                     <input type="number" class="form-control" id="anz_etage" name="anz_etage" placeholder="Anzahl Etage" value="{{ old('anz_etage') }}" value="0">
+                     <input type="number" class="form-control" id="anz_etage" name="anz_etage" value="{{$gebaude->anz_etage}}">
                   </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlSelect2">Anzahl Räume</label>
-                    <input type="number" class="form-control" id="anz_raum" name="anz_raum" placeholder="Anzahl Räume" value="{{ old('anz_raum') }}" value="0">
+                    <input type="number" class="form-control" id="anz_raum" name="anz_raum" value="{{$gebaude->anz_raum}}">
                   </div>
                 <div class="form-group">
                   <label for="image">image</label>

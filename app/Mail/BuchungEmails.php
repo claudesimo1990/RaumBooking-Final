@@ -23,7 +23,7 @@ class BuchungEmails extends Mailable
      *
      * @return void
      */
-    public function __construct(Buchung $data)
+    public function __construct($data)
     {
         $user = User::find(auth()->id());
         $this->user = $user;

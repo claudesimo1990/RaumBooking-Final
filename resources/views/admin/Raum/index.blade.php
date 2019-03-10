@@ -23,7 +23,8 @@
     <div class="box">
       <div class="box-header with-border">
         <h3 class="box-title">Räume</h3>
-        <a class='col-lg-offset-5 btn btn-success' href="{{ route('gebaude.create') }}">Add New</a>
+        <p>@include('flash::message')</p>
+        <a class='col-lg-offset-5 btn btn-success' href="{{ route('raume.create') }}">Add New</a>
         @include('includes2.messages')
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -61,7 +62,11 @@
                           <th>{{$raum->gebaude->id}}</th>
                           <th>{{$raum->image}}</th>
                           <th><button class="btn btn-success">Edit</button></th>
-                          <th><button class="btn btn-danger">Delete</button></th>
+                          <th>
+                            {{ Form::open(array('method'=>'delete','route'=>['raume.destroy',$raum->id]))}}
+                            <button type="submit" class="btn btn-danger">Löschen</button>
+                            {{Form::close()}}
+                          </th>
                         </tr>
                         </tfoot>
                         @endforeach
@@ -89,6 +94,9 @@
 @section('footerSection')
 <script src="{{ asset('admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+<script>
+    $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+    </script>
 <script>
   $(function () {
     $("#example1").DataTable();

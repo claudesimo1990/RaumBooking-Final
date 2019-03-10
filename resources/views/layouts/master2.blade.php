@@ -76,10 +76,27 @@
     <script>
         $('#flash-overlay-modal').modal();
     </script>
+
     <script>
     $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
     </script>
-     @yield('js')
-  </body>
 
+     @yield('js')
+
+     <script>
+       $('#exampleModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget)
+      var raum_number = button.data('raum_number');
+      var user_id = button.data('user_id');
+      var username = button.data('username');   
+      var gebaude_id = button.data('gebaude_id');
+      var raum_id = button.data('raum_id');
+      var modal = $(this)
+      modal.find('.modal-body #raum_number').val(raum_number);
+      modal.find('.modal-body #user_id').val(user_id);
+      modal.find('.modal-body #raum_id').val(raum_id);
+      modal.find('.modal-body #gebaude_id').val(gebaude_id);
+      modal.find('.modal-body #username').val(username);
+    });
+   </script>
 </html>

@@ -20,38 +20,39 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Add Gebäude</h3>
+              <h3 class="box-title">Add Raum</h3>
             </div>
 
             @include('includes2.messages')
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{ route('gebaude.store') }}" method="post" enctype="multipart/form-data">
+            <form role="form" action="{{ route('raume.store') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
               <div class="box-body">
               <div class="col-lg-offset-3 col-lg-6">
                 <div class="form-group">
-                  <label for="name">Gebaude name</label>
+                  <label for="name">Raum Name</label>
                   <input type="text" class="form-control" id="name" name="name" placeholder="Gebaude name" value="{{ old('name') }}">
                 </div>
-
+                 <div class="form-group">
+                  <label for="raum_number">Raum Number</label>
+                  <input type="Number" class="form-control" id="raum_number" name="raum_number" placeholder="raum number" value="{{ old('raum_number') }}">
+                </div>
                 <div class="form-group">
-                    <label for="exampleFormControlSelect2">Anzahl Etage</label>
-                     <input type="number" class="form-control" id="anz_etage" name="anz_etage" placeholder="Anzahl Etage" value="{{ old('anz_etage') }}" value="0">
+                    <label for="exampleFormControlSelect2">Gebaüde ID</label>
+                    <select multiple class="form-control" name="gebaude_id" id="exampleFormControlSelect2">
+                      @foreach($gebaudeId as $gebId)
+                          <option>{{$gebId->id}}</option>
+                      @endforeach
+                    </select>
                   </div>
-
                 <div class="form-group">
-                    <label for="exampleFormControlSelect2">Anzahl Räume</label>
-                    <input type="number" class="form-control" id="anz_raum" name="anz_raum" placeholder="Anzahl Räume" value="{{ old('anz_raum') }}" value="0">
-                  </div>
-                <div class="form-group">
-                  <label for="image">image</label>
+                  <label for="image">Bild</label>
                   <input type="file" class="form-control" id="image" name="image" placeholder="image" value="{{ old('image') }}">
                 </div>
               <div class="form-group">
-                <a href='{{ route('gebaude.index') }}' class="btn btn-warning">zurück</a>
+                <a href='{{ route('raume.index') }}' class="btn btn-warning">Zurück</a>
                 <button type="submit" class="btn btn-primary">herstellen</button>
-                
               </div>
                 
               </div>

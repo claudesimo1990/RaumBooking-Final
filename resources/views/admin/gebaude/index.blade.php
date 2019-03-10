@@ -22,7 +22,6 @@
     <!-- Default box -->
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title">Gebäude</h3>
         <a class='col-lg-offset-5 btn btn-success' href="{{ route('gebaude.create') }}">Add New</a>
         @include('includes2.messages')
         <div class="box-tools pull-right">
@@ -35,7 +34,7 @@
       <div class="box-body">
         <div class="box">
                     <div class="box-header">
-                      <h3 class="box-title">Data Table With Full Features</h3>
+                      <h3 class="box-title">Gebäude Tabelle</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -59,8 +58,14 @@
                           <th>{{$gebaude->anz_etage}}</th>
                           <th>{{$gebaude->anz_raum}}</th>
                           <th>{{$gebaude->image}}</th>
-                          <th><button class="btn btn-success">Edit</button></th>
-                          <th><button class="btn btn-danger">Delete</button></th>
+                          <th>
+                            <a href="{{route('gebaude.show',[$gebaude->id])}}" class="btn btn-success">Edit</a>   
+                          </th>
+                          <th>
+                            {{ Form::open(array('method'=>'delete','route'=>['gebaude.destroy',$gebaude->id]))}}
+                            <button type="submit" class="btn btn-danger">Löschen</button>
+                            {{Form::close()}}
+                          </th>
                         </tr>
                         </tfoot>
                         @endforeach

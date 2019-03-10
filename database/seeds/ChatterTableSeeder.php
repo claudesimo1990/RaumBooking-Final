@@ -36,6 +36,18 @@ class ChatterTableSeeder extends Seeder
                 ],
             ]);
         }
+        //CREATE ADMIN
+        \DB::table('admins')->delete();
+        \DB::table('admins')->insert([
+         0 => [
+          'id' => 1,
+          'name' => 'superuser',
+          'email' => 'admin@admin.com',
+          'password' => '$2y$10$JVWETUonh3N/nKgMIvRIvubmdMqjoxSnJAcOzxCa7spQau/4jws/a',
+          'phone' => '015752804191',
+          'status' => 0
+         ]
+        ]);
 
         // CREATE THE CATEGORIES
 

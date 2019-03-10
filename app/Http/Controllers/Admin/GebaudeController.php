@@ -47,7 +47,32 @@ class GebaudeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate
+        request()->validate([
+
+         'name' => 'required',
+         'anz_etage' => 'required | integer',
+         'anz_raum' => 'required | integer',
+         'image' => 'required | mimes:jpeg,png'
+        ]);
+
+        if ($request->hasFile('image')) {
+
+            $image = $request->image->getClientOriginalName();
+            $request->image->storeAs('public/gebaude',$image);    
+
+        //store
+        $gebaude = new Gebaude;
+        $gebaude->name = request('name');
+        $gebaude->anz_raum = request('anz_raum');
+        $gebaude->anz_etage = request('anz_etage');
+        $gebaude->image = $image;
+
+        $gebaude->save();
+        return redirect('admin/gebaude');
+
+    }
+
     }
 
     /**
@@ -58,7 +83,11 @@ class GebaudeController extends Controller
      */
     public function show($id)
     {
-        //
+        $gebaude = Gebaude::find($id);
+
+        return view('admin.gebaude.show',['gebaude' => $gebaude]);
+
+
     }
 
     /**
@@ -69,7 +98,7 @@ class GebaudeController extends Controller
      */
     public function edit($id)
     {
-        //
+        dd($id);
     }
 
     /**
@@ -92,6 +121,7 @@ class GebaudeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Gebaude::find($id)->delete();
+        return back();
     }
 }

@@ -67,13 +67,10 @@
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{ route('notications.index') }}">
                       <i class="fa fa-bell-o"></i>
-                      <span class="badge badge-danger">9+</span>
+                      <span class="badge badge-danger">{{auth()->user()->notifications->count()}}</span>
                         Notifications</a>
-                    <a class="dropdown-item" href="#">
-                      <i class="fa fa-edit"></i>
-                        Reservierungen</a>
                     <a class="dropdown-item" href="/forums">
                       <i class="fa fa-comments-o"></i>
                         Forum</a>

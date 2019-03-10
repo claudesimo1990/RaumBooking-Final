@@ -1,4 +1,4 @@
 <h1>
-  RaumReservierung Page
-  <small>Lets create something awesome</small>
+  RaumReservierung <span style="color:red;font-size: 30px">TH Köln</span>
+  <small></small>
 </h1>

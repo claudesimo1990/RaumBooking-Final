@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Gebaude;
-use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class GebaudeController extends Controller
+class notificationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class GebaudeController extends Controller
      */
     public function index()
     {
-        $gebaudes = Gebaude::paginate(4);
-        return view('users.posts_gebaude',compact('gebaudes'));
+        return view('users/notifications/notify');
     }
 
     /**
@@ -48,12 +46,9 @@ class GebaudeController extends Controller
      */
     public function show($id)
     {
-        $user = User::find(auth()->id());
-        $gebaude = Gebaude::find($id);
-        $raume = Gebaude::find($id)->raume()->paginate(4);
-        
-        return view('users.posts_raum',compact(['gebaude','raume','user']));
+        //
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -85,6 +80,8 @@ class GebaudeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('notifications')->where('id', $id)->delete();
+        flash('deleted !')->success();
+        return back();
     }
 }

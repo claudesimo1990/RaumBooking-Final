@@ -57,7 +57,7 @@ class LoginController extends Controller
         $admin = admin::where('email',$request->email)->first();
         if (count($admin)) {
             if ($admin->status == 0) {
-                return ['email'=>'inactive','password'=>'You are not an active person, please contact Admin'];
+                flash('Du hast noch kein zugang Rechte bekommen !')->error();
             }else{
                 return ['email'=>$request->email,'password'=>$request->password,'status'=>1];
             }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Buchung extends Model
 {
-	protected $fillable = ['gebaude_id','user_id','raum_number','von','qrcode','bis','kommentar','color'];
+	protected $fillable = ['gebaude_id','user_id','raum_number','von','qrcode','bis','event','color'];
 
 
 
@@ -19,6 +19,6 @@ class Buchung extends Model
 
     public function raum()
     {
-    	return $this->hasOne(Raum::class);
+    	return $this->belongsTo(Raum::class);
     }
 }

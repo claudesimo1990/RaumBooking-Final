@@ -1,12 +1,14 @@
 <?php
 
 Route::get('/', 'AppController@accueil')->name('accueil');
+Route::resource('/notications', 'notificationController');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/welcome', 'AppController@SendWelcomeEmail');
+Route::get('/welcome', 'AppController@SendWelcomeEmail');
 Route::get('/contact', 'AppController@contact')->name('contact')->middleware('verified');
 //Calendar
  Route::get('buchungskalendar', 'EventController@index')->name('events');
+ Route::get('raumkalendar/{raum_number}', 'EventController@eventRaum')->name('eventRaum');
  Route::get('/home', 'HomeController@index')->name('home');
 //profile
 route::get('/profile','ProfilController@show')->name('profile')->middleware('verified');
@@ -24,8 +26,9 @@ route::get('/gebaude','GebaudeController@index')->name('gebaude_index');
 route::get('/gebaude/{gebaude}','GebaudeController@show')->name('gebaude.show');
 //Buchung
 route::get('/gebaude/{id}/{name}','BuchungController@create')->name('Buchung.create');
-route::post('/gebaude/{id}/{name}','BuchungController@store');
+route::post('/buchung','BuchungController@store')->name('Buchung.store');
 route::get('/singlebuchung','BuchungController@UserBuchung')->name('singlebuchung');
+
 });
 
 //login an register

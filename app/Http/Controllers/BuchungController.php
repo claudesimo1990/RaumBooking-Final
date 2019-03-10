@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Buchung;
 use App\Gebaude;
 use App\Mail\BuchungEmails;
+use App\Notifications\newBuchungNotify;
 use App\Raum;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
@@ -44,55 +44,47 @@ class BuchungController extends Controller
      */
     public function store(Request $request)
     {
-      if (! \Carbon\Carbon::parse($request->von)->format('d/m/Y') >= Carbon::now()->format('d/m/Y') && \Carbon\Carbon::parse($request->bis)->format('d/m/Y') > Carbon::now()->format('d/m/Y') && ! \Carbon\Carbon::parse($request->von)->format('H:i:s') >= '09:00:00' && ! \Carbon\Carbon::parse($request->bis)->format('H:i:s') <= '22:00:00') 
-      {
 
-           flash('Das Datum, welches Sie angegeben haben liegt in der Vergangenheit!')->error();
-           return back()->withInput();
-       } 
+     //neue Instance von der Klasse Buchung erzeugen
+      $buchung = new Buchung;
+
+      $buchung->gebaude_id = $request->gebaude_id;
+      $buchung->user_id = auth()->id();
+      $buchung->raum_number = $request->raum_number;
+      $buchung->von = $request->von;
+      $buchung->bis = $request->bis;
+      $buchung->raum_id = $request->raum_id;
+      $buchung->event = $request->message;
+      $buchung->color = $request->color;
+      $buchung->qrcode = rand();
+
+      $buchung->save();
+
+
       
-     // find aktuellen Raum der gebucht wird
-     $raum = Gebaude::find(request('id'))->raume()->where('name',request('name'))->first();
-
-      //validation
-      $request->validate([
-      'von' => ['required'],
-      'bis' => ['required'],
-      'kommentar' => ['required']
-       ]);
-
-     //create Buchung and flush in der Datenbank
-
-      //Array color
-      $array  = ['#FF33BB', '#42FF33', '#3368FF', '#7D1468', '#F6071D','#5E6265','#99D922'];
-      $random = array_rand($array);
-      $color  = $array[$random];
-
-      $data = Buchung::create([  
-     'gebaude_id' => request('id'),
-     'user_id' => auth()->id(),
-     'raum_number' => $raum->raum_number,
-     'von' => request('von'),
-     'kommentar' => request('kommentar'),
-     'qrcode' => rand(1000, 10000000),
-     'bis' => request('bis'),
-     'color' => $color 
-      ]);
-     //Update status Raum
-     DB::table('raums')
-     ->where('raum_number',$raum->raum_number)
-     ->update(['status' => 1]);
+      $data = [ 
+        'raum_number' => $request->raum_number,
+        'von'         => $request->von,
+        'bis'         => $request->bis,
+        'date'         => $request->date,
+        'qrcode'         => $buchung->qrcode,
+        'event'      => $request->message
+      ];
 
 
 
-     //send Email to den eingelogte User
+      $user = User::find(auth()->id());
 
-      Mail::to($request->user())->send(new BuchungEmails($data));
-     flash('Ihre Buchung wurde entgegen genommen Sie bekommen eine Bestätigung per Email ')
-         ->success();
-         return redirect('/gebaude');
+      $user->notify( new newBuchungNotify($data)
+      );
 
-       }
+
+
+      flash('Buchung erfolgreich')->success();
+
+      return back();
+
+    }
        public function UserBuchung()
        {
           $singlebuchung = Buchung::all();
