@@ -53,7 +53,7 @@
                         </tr>
                         </thead>
                     
-                        @foreach($raume as $raum)
+                        @forelse($raume as $raum)
                         <tfoot>
                         <tr>
                           <th>{{$raum->id}}</th>
@@ -69,6 +69,12 @@
                           </th>
                         </tr>
                         </tfoot>
+                        @empty
+                        <div class="bg-success mb-4 mt-4">
+                          <p>
+                            Das Gebaude hat noch kein Raum zugewiesen bekommen !
+                          </p>
+                        </div>
                         @endforeach
                       </table>
                     </div>
