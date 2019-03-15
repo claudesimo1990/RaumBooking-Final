@@ -75,7 +75,7 @@
                             Das Gebaude hat noch kein Raum zugewiesen bekommen !
                           </p>
                         </div>
-                        @endforeach
+                        @endforelse
                       </table>
                     </div>
                     <hr>
