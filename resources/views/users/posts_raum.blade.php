@@ -105,7 +105,7 @@
           <tbody>
             @forelse($raum->buchungen as $key=>$buchung)
             <tr>
-              <td>{{\Carbon\Carbon::parse($buchung->von)->format('d.m.Y')}}</td>
+              <td>{{\Carbon\Carbon::parse($buchung->date)->format('d.m.Y')}}</td>
               <td>{{\Carbon\Carbon::parse($buchung->von)->format('H:i:s')}}</td>
               <td>{{\Carbon\Carbon::parse($buchung->bis)->format('H:i:s')}}</td>
               <td>{{$buchung->event}}</td>

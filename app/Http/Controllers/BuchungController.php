@@ -44,7 +44,6 @@ class BuchungController extends Controller
      */
     public function store(Request $request)
     {
-
      //neue Instance von der Klasse Buchung erzeugen
       $buchung = new Buchung;
 
@@ -53,6 +52,7 @@ class BuchungController extends Controller
       $buchung->raum_number = $request->raum_number;
       $buchung->von = $request->von;
       $buchung->bis = $request->bis;
+      $buchung->date = $request->date;
       $buchung->raum_id = $request->raum_id;
       $buchung->event = $request->message;
       $buchung->color = $request->color;

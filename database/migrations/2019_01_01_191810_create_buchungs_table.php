@@ -22,6 +22,7 @@ class CreateBuchungsTable extends Migration
             $table->integer('raum_number');
             $table->time('von')->nullable();
             $table->time('bis')->nullable();
+            $table->date('date')->nullable();
             $table->string('event')->nullable();
             $table->string('color')->nullable();
             $table->timestamps();

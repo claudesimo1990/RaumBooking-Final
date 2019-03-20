@@ -52,6 +52,7 @@
                           <th>Delete</th>
                         </tr>
                         </thead>
+                        
                     
                         @forelse($raume as $raum)
                         <tfoot>

@@ -7,7 +7,7 @@
           <img src="{{ asset('admincss/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{ Auth::user()->name }}</p>
+          <p> Super Admin</p>
         </div>
       </div>
       <!-- search form -->
